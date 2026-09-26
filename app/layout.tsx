@@ -13,9 +13,14 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const SITE_URL = "https://sportime.kyani.net";
+const SHARE_TITLE = "SPORTIME AKHİSAR | Fitness, Pilates & Yoga Stüdyosu";
+const SHARE_DESCRIPTION =
+  "Akhisar'da fitness, reformer pilates, hamile pilatesi ve yoga ile sağlıklı yaşamın tek adresi.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sportime.kyani.net"),
-  title: "SPORTIME AKHİSAR | Fitness, Pilates & Yoga Stüdyosu",
+  metadataBase: new URL(SITE_URL),
+  title: SHARE_TITLE,
   description:
     "SPORTIME AKHİSAR — Akhisar'da fitness, reformer pilates, hamile pilatesi ve yoga ile sağlıklı yaşamın tek adresi. Uzman kadın eğitmen kadrosu ve samimi stüdyo ortamı.",
   keywords: [
@@ -26,13 +31,30 @@ export const metadata: Metadata = {
     "hamile pilatesi Akhisar",
     "Sportime Akhisar",
   ],
+  // NOT: WhatsApp, Instagram, Facebook vb. uygulamalar link paylaşım
+  // kartını (başlık + açıklama + görsel) bu openGraph/twitter alanlarından
+  // okur. "images" alanı olmadan link, önizlemesiz/kırık görünür.
   openGraph: {
-    title: "SPORTIME AKHİSAR | Fitness, Pilates & Yoga Stüdyosu",
-    description:
-      "Akhisar'da fitness, reformer pilates, hamile pilatesi ve yoga ile sağlıklı yaşamın tek adresi.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
+    url: SITE_URL,
     locale: "tr_TR",
     type: "website",
     siteName: "SPORTIME AKHİSAR",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SPORTIME AKHİSAR — Sağlıklı Yaşamın Tek Adresi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
+    images: ["/images/og-image.png"],
   },
   robots: {
     index: true,
